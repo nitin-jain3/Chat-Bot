@@ -272,7 +272,7 @@
         let chatadmin = document.getElementById('chatadmin');
         let botmessage = "";
         function talkadmin(adminid) {
-            socket.emit('userreqtoadmin', adminid);
+            socket.emit('userreqtoadmin', {id:adminid});
             var msgContainer = document.getElementById("chatbody");
             var botmsgElement = document.createElement("div");
             botmsgElement.classList.add("chat-bubble", "you");

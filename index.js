@@ -181,6 +181,7 @@ io.on('connection', (socket) => {
     })
     socket.on('userreqtoadmin',(data) => {
         console.log('user request to admin');
+        io.to(data.id ).emit('letstalktoadmin', {id:socket.id, name:allchats[socket.id].name, email:allchats[socket.id].email, occupation:allchats[socket.id].occupation});
     })
     socket.on('adminreply',(data) => {
         allchats[data.userid].chat.push("Admin : " + data.adminreply);
