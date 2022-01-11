@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fs = require("fs")
 const server = require('http').Server(app);
 const io = require('socket.io')(server, { cors: { origin: '*' } });
 const { NlpManager } = require('node-nlp');
@@ -216,6 +217,6 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(3000, () => {
+server.listen(3000 || process.env.PORT, () => {
     console.log("Server started on port 3000")
 });
