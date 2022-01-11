@@ -80,7 +80,7 @@
         var socket = io.connect('http://localhost:3000');
         socket.emit('adminconnect');
         socket.on('adminconnect', function(data) {
-            console.log(data.id);
+            console.log(data.id,"----");
         });
         socket.on('letstalktoadmin', (data) => {
             var tr = document.createElement('tr');
