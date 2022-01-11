@@ -132,8 +132,15 @@ async function trainbot(manager) {
     manager.addAnswer('en', 'greetings.bye', 'Till next time :)');
     manager.addAnswer('en', 'greetings.bye', 'see you soon!');
 
-    await manager.train();
-    manager.save();
+    // await manager.train();
+    // manager.save();
+    if (fs.existsSync('./model.nlp')) {
+        //file exists
+        console.log("Model is already there");
+    } else {
+        await manager.train();
+        manager.save();
+    }
 }
 
 trainbot(manager);
